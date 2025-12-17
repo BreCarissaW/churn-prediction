@@ -4,6 +4,10 @@ This project focuses on predicting customer churn using supervised machine learn
 
 The objective is to identify customers at risk of churning and to evaluate models that balance predictive performance with interpretability for business decision-making.
 
+## Live Demo
+
+**[Try the app here!](https://churn-prediction-ig41.onrender.com)** - Upload your customer data CSVs and get instant churn predictions.
+
 ## Structure
 
 - `notebooks/` — Jupyter notebook containing analysis, feature engineering, and modeling
