@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .metrics-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 4px;
+        }
+        .metrics-section h2 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .metric-card {
+            background-color: white;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: bold;
+        }
+        .metric-value {
+            font-size: 24px;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .button-group {
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .button-group a {
+            flex: 1;
+        }
+        .button-group button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SmartBank Churn Prediction Results</h1>
+        
+        <div class="button-group">
+            <a href="/download_predictions?data={{ results_csv | urlencode }}">
+                <button>Download Predictions as CSV</button>
+            </a>
+            
+            <a href="/">
+                <button>Upload New Data</button>
+            </a>
+        </div>
+        
+        <div class="metrics-section">
+            <h2>Model Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Precision</div>
+                    <div class="metric-value">0.31</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Recall</div>
+                    <div class="metric-value">0.27</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">F1-Score</div>
+                    <div class="metric-value">0.29</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">ROC-AUC</div>
+                    <div class="metric-value">0.53</div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Churn Predictions</h2>
+        {% for table in tables %}
+            {{ table | safe }}
+        {% endfor %}
+    </div>
+</body>
+</html>
